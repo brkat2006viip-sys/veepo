@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  bot:
+    build: .
+    container_name: telegram_ai_bot
+    volumes:
+      - ./:/app
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+      - ./temp:/app/temp
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - FERNET_KEY=${FERNET_KEY}
+      - DATABASE_URL=${DATABASE_URL}
+      - AGENTROUTER_API_URL=${AGENTROUTER_API_URL}
+    restart: unless-stopped

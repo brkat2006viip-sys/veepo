@@ -1,0 +1,14 @@
+[Unit]
+Description=Telegram AI Coding Agent Bot
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/telegram-ai-bot
+EnvironmentFile=/opt/telegram-ai-bot/.env
+ExecStart=/usr/bin/python3 /opt/telegram-ai-bot/main.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
